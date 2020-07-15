@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Messages</title>
+  <script>
+    function loadMessages() {
+      jsonData = '[{"id":1,"content":"Do you really want to hurt me?","username":"Boy"},{"id":2,"content":"Do you really want to make me cry?","username":"George"}]';
+      jsonArray = JSON.parse(jsonData);
+      displayMessage(jsonArray[0]);
+      messageDivider()
+      displayMessage(jsonArray[1]);
+    }
+
+    function displayMessage(doc) {
+        sender = doc["username"];
+        message = doc["content"];
+        messageDisplay = document.getElementById("messages");
+        messageDisplay.innerHTML += sender + ": " + message;
+    }
+
+    function messageDivider() {
+        messageDisplay = document.getElementById("messages");
+        messageDisplay.innerHTML += "<br><br>";
+    }
+
+  </script>
+</head>
+
+<body onload="loadMessages()">
+  <h1>Messages</h1>
+  <div id="messages"></div>
+</body>
+
+</html>

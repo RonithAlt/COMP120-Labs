@@ -1,0 +1,21 @@
+body {
+    background-color:black;
+    text-align:center;
+    font-family:Helvetica;
+    color:white;
+}
+
+#title {
+    font-weight:bold;
+    padding-bottom:50px;
+}
+
+#butwehavethepower {
+    width:80%;
+    padding-bottom: 50px;
+}
+
+#lyrics {
+    color:yellow;
+    font-size: 24px;
+}

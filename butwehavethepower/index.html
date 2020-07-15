@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Union Strike Folk Song</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+<h1 id="title">Union Strike Folk Song</h1>
+
+<video src="https://www.cs.tufts.edu/comp/120/butwehavethepower.mp4" id="butwehavethepower" controls></video>
+<div id="lyrics"></div>
+
+<script>
+    var video = document.getElementById("butwehavethepower");
+
+    const getLyrics = function(time, displayHandler) {
+        var verse1 = "Lisa:<br>" +
+                     "Come gather round, children,<br>" +
+                     "It's high time ye learned,<br>" +
+                     "'Bout a hero named Homer<br>'" +
+                     "And a devil named Burns.<br><br>" +
+                     "We'll march 'till we drop<br>" + 
+                     "The girls and the fellas.<br>" +
+                     "We'll fight 'till death<br>" +
+                     "Or else fold like umbrellas.";
+        var verse2 = "So we'll march day and night<br>" + 
+                     "By the big cooling tower.<br>" +
+                     "They have the plant<br><br>" + 
+                     "But we have the power.";
+        var verse4 = "Lenny:<br>" +
+                     "Now do \"Classical Gas!\"<br>";
+
+        if (time < 26) {
+            displayHandler(verse1);
+        } else if (time < 38) {
+            displayHandler("");
+        } else if (time < 51) {
+            displayHandler(verse2);
+        } else if (time < 53) {
+            displayHandler("");
+        } else if (time < 55) {
+            displayHandler(verse4);
+        } else if (time < 72) { 
+            displayHandler("");
+        } else if (time < 92) {
+            displayHandler(verse2);
+        } else {
+            displayHandler("");
+        }
+    };
+
+    const display = function(text) {
+        var lyricsBlock = document.getElementById("lyrics");
+        lyricsBlock.innerHTML = text;
+    };
+
+    video.ontimeupdate = (event) => {
+        getLyrics(video.currentTime, display);
+    };
+</script>
+</body>
+</html>	
